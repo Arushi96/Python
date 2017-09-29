@@ -12,6 +12,18 @@
 #print(countdown)- will print address of countdown
  
 #countdown(10)
+
+#count up recursion
+# def countup(n):
+#      #Base Case
+#     if n==0:
+#         print n
+#      #Recursive Case
+#     else:
+#         countup(n-1)
+#         print(n)     
+#     
+# countup(10)
         
 #sum of all integers nos using recursion
 # def sum_int(n):
