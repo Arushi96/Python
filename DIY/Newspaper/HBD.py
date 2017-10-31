@@ -8,7 +8,7 @@ import newspaper
 # url=u"http://www.dailymail.co.uk/ushome/index.html"
 url_list=[u"https://www.nytimes.com/",u"http://cnn.com", u"https://timesofindia.indiatimes.com/", u"https://www.washingtonpost.com/", u"https://www.theguardian.com/international", u"https://www.thesun.co.uk/", u"http://www.dailymail.co.uk/ushome/index.html", u"http://www.thehindu.com/", u"http://en.people.cn/", u"https://www.bhaskar.com/", u"http://www.hindustantimes.com/"]
 for url in url_list:
-    ppr = newspaper.build(url,memoize_articles=False)
+    ppr = newspaper.build(url,memoize_articles=False,is_memo=False) #is_memo=False is to remove duplicacy
     ppr.download()
     ppr.parse()
       
