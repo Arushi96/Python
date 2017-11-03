@@ -5,23 +5,15 @@ import os
 import datetime
 import newspaper
 
-cnn_paper = newspaper.build('http://cnn.com')
+ppr = newspaper.build('http://cnn.com')
 
-for category in cnn_paper.category_urls():
-    cat_paper = newspaper.build(category)
-    cat_paper.download()
-    cat_paper.parse()
-    print(category)
-    for art in cat_paper.articles:
-        cat_paper.articles.download()
-        cat_paper.articles.parse()
-        print(art.authors)
-#         print cat_paper.articles #Gives all articles of category
-#     for article in cat_paper.articles:
-#         print article.title.encode('utf-8')
-#         
-        
-        
-#     print cat_paper.articles #Gives all articles of category
-#     for article in cat_paper.articles:
-#         print article.url() 
+for category in ppr.category_urls():
+#         print(ppr.brand, ppr.description, category)
+        for article in ppr.articles:
+            article.download()
+            article.parse()
+#             print(article.text)
+#             print(article.authors, article.publish_date)
+            print(article.summary.encode('utf-8'))
+#         print(url.encode('utf-8') + ":" + article.authors() + ":" + article.title.encode('utf-8') + ":" + article.text.encode('utf-8'))
+#         print(url,article.title.encode('utf-8'))
