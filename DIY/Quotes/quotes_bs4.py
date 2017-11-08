@@ -1,11 +1,20 @@
+import urllib2
 from bs4 import BeautifulSoup
-import requests
+url = 'http://quotes.toscrape.com/'
 
-http = requests.get("http://quotes.toscrape.com/")
-http_doc = http.text
-soup = BeautifulSoup(http_doc, "html.parser")
-spans= soup.findall{attrs={"class":"next"}}
-print spans
+conn = urllib2.urlopen(url)
+html = conn.read()
 
+soup = BeautifulSoup(html)
+links = soup.find_all('a')
+spans = soup.find_all('span')
 
-# <a href="/page/2/">Next <span aria-hidden="true">→</span></a>
+# for tag in links:
+#     link = tag.get('href',None)
+#     if link is not None:
+#         print link
+        
+for text in spans:
+    spans = text.get('itemprop="text">',None)
+    if spans is not None:
+        print spans
